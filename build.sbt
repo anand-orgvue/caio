@@ -24,6 +24,10 @@ Test / packageSrc / publishArtifact := true
 
 ThisBuild / evictionErrorLevel := util.Level.Warn
 
+ThisBuild / publishTo := Some(
+  "orgvue-orgvue-backend" at "https://orgvue-824511106731.d.codeartifact.us-east-1.amazonaws.com/maven/orgvue-backend"
+)
+
 val currentScalaVersion_ = "2.13.8"
 ThisBuild / scalaVersion := currentScalaVersion_
 
@@ -81,6 +85,7 @@ testFrameworks += new TestFramework("munit.Framework")
 addCompilerPlugin("org.typelevel" % "kind-projector" % "0.13.2" cross CrossVersion.full)
 
 resolvers ++= Seq(
+  "orgvue-orgvue-backend" at "https://orgvue-824511106731.d.codeartifact.us-east-1.amazonaws.com/maven/orgvue-backend",
   "Maven Central Server" at "https://repo1.maven.org/maven2",
   "Typesafe Releases" at "https://repo.typesafe.com/typesafe/releases/",
   Resolver.sonatypeRepo("releases"),
